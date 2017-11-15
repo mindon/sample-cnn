@@ -1,7 +1,7 @@
 import tensorflow as tf
 import numpy as np
 
-from madmom.audio.signal import Signal
+from madmom.audio.signal import Signal, remix
 
 FLAGS = tf.flags.FLAGS
 
