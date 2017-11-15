@@ -88,6 +88,10 @@ def _audio_to_segments(filename, sample_rate, n_samples, center=False):
   # Load an audio file as a numpy array
   sig = Signal(filename, sample_rate=sample_rate, dtype=np.float32)
 
+  # remix to mono if channels > 1
+  if len(sig.shape) > 1 and sig.shape[1] > 1:
+    sig = remix(sig, 1)
+  
   total_samples = sig.shape[0]
   n_segment = total_samples // n_samples
 
